@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TCP/IP Simulation</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>TCP/IP Encapsulation & Decapsulation Simulation</h1>
+
+    <div class="controls">
+      <input
+        type="text"
+        id="input-data"
+        placeholder="Enter data to send"
+        value="Hello Net!"
+      />
+      <button id="start-btn">Start</button>
+      <button id="reset-btn" disabled>Reset</button>
+      <button id="next-btn" disabled>Next Step</button>
+    </div>
+
+    <div class="simulation-wrapper">
+      <div class="simulation-container">
+        <div class="node sender">
+          <h2>Sender</h2>
+          <div class="layers">
+            <div class="layer link" id="sender-link">
+              Link (Ethernet)
+              <div class="data-unit" id="sender-link-data"></div>
+            </div>
+            <div class="layer internet" id="sender-internet">
+              Internet (IP)
+              <div class="data-unit" id="sender-internet-data"></div>
+            </div>
+            <div class="layer transport" id="sender-transport">
+              Transport (TCP)
+              <div class="data-unit" id="sender-transport-data"></div>
+            </div>
+            <div class="layer application" id="sender-app">
+              Application
+              <div class="data-unit" id="sender-app-data"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="raw-packet-view">
+          <h2>Sender Packet Structure</h2>
+          <pre id="sender-raw-packet-display" class="raw-packet-display">
+Packet structure will appear here.</pre
+          >
+        </div>
+
+        <div class="node receiver">
+          <h2>Receiver</h2>
+          <div class="layers">
+            <div class="layer link" id="receiver-link">
+              Link (Ethernet)
+              <div class="data-unit" id="receiver-link-data"></div>
+            </div>
+            <div class="layer internet" id="receiver-internet">
+              Internet (IP)
+              <div class="data-unit" id="receiver-internet-data"></div>
+            </div>
+            <div class="layer transport" id="receiver-transport">
+              Transport (TCP)
+              <div class="data-unit" id="receiver-transport-data"></div>
+            </div>
+            <div class="layer application" id="receiver-app">
+              Application
+              <div class="data-unit" id="receiver-app-data"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="network">
+        <div class="wire"></div>
+        <div class="packet" id="network-packet"></div>
+      </div>
+    </div>
+
+    <div class="info-panel" id="info-panel">
+      Ready. Enter data and click Start.
+    </div>
+    <hr />
+    <script src="script.js"></script>
+  </body>
+</html>
